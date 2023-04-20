@@ -1,0 +1,20 @@
+namespace: wordpress
+
+wordpress:
+    deployment:
+        image: wordpress:4.8-apache
+        replicaCount: 1
+    service:
+        type: NodePort
+        port: 80
+    
+mysql:
+    deployment:
+        image: mysql:5.6
+        replicaCount: 1
+    service:
+        type: ClusterIP
+        port: 3306
+    pvc:
+        accessMode: ReadWriteOnce
+        storage: 2Gi
