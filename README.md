@@ -1,4 +1,4 @@
-# Kubernetes WordPress + MySQL helm chart
+# Kubernetes PHPBB + MySQL helm chart
 
 
 
@@ -20,38 +20,36 @@ kubectl get nodes
 
 1) Clone this git repository
 ```sh
-git clone https://github.com/DataScientest/helm-wordpress.git
+git clone https://github.com/DataScientest/helm-phpbb.git
 ```
 2) Execute next commands **from repository directory**
 
 *check that all templates are valid*
 ```sh
-cd helm-wordpress
+cd helm-phpbb
 helm template .
 ```
 *install chart*
 ```sh
-helm install wordpress-mysql . --values=values.yaml
+helm install phpbb-mysql . --values=values.yaml
 ```
-3) Check your WordPress service **NodePort**  with next command (may take some time)
+3) Check your phpbb service **NodePort**  with next command (may take some time)
 ```sh
-kubectl get service -n wordpress
+kubectl get service -n phpbb
 ```
-*By-default namespace that used in the chart called **wordpress**. If you changed it, make sure you define the proper namespace in **kubectl get** command.*
+*By-default namespace that used in the chart called **phpbb**. If you changed it, make sure you define the proper namespace in **kubectl get** command.*
 
 Now you can check this IP address with web-browser
 
-# Helm Variables
-Defined in [values.yaml]([https://github.com/ltblueberry/wordpress-mysql-helm-chart/](https://github.com/DataScientest/helm-wordpress)blob/main/values.yaml)
 
 | Name              | Default Value       |Difinition   |
 |-----------------------|---------------------|---------------------|
 | `namespace` | `wordpress` |Kubernetes namespace|
 
-## `wordpress`:
+## `phpbb`:
 | Name              | Default Value       |Difinition   |
 |-----------------------|---------------------|---------------------|
-| `deployment.image` | `wordpress:4.8-apache` |Docker image for Wordpress|
+| `deployment.image` | `phpbb:3.3.10` |Docker image for Wordpress|
 |`deployment.replicaCount` | `1` |Number of Pods to run
 |`service.type` |` NodePort` |Kubernetes Service type
 |`service.port` | `80 `|Publishing port
