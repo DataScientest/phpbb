@@ -44,7 +44,7 @@ Now you can check this IP address with web-browser
 
 | Name              | Default Value       |Difinition   |
 |-----------------------|---------------------|---------------------|
-| `namespace` | `wordpress` |Kubernetes namespace|
+| `namespace` | `phpbb` |Kubernetes namespace|
 
 ## `phpbb`:
 | Name              | Default Value       |Difinition   |
@@ -71,7 +71,7 @@ helm list
 ```
 2) Execute the next command to uninstall helm release by RELEASE_NAME
 ```sh
-helm uninstall wordpress-mysql
+helm uninstall phpbb-mysql
 ```
 
 ## License
